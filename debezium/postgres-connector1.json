@@ -1,0 +1,24 @@
+{
+  "name": "postgres-connector1",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "projection.c6ogzag2dy6v.us-east-1.rds.amazonaws.com",
+    "database.port": "5438",
+    "database.user": "ae835826e32f40d930f76653b27bf021",
+    "database.password": "postgres",
+    "database.dbname": "production",
+    "database.server.name": "projection",
+    "table.include.list": "public.users,public.tokens",
+    "plugin.name": "pgoutput",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "transforms": "route",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.route.regex": ".*",
+    "transforms.route.replacement": "teste",
+    "google.pubsub.project.id": "fsfc-310503",
+    "google.pubsub.topic": "teste",
+    "google.pubsub.credentials.path": "/etc/secrets/keyfile.json"
+  }
+}
